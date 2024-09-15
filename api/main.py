@@ -29,6 +29,9 @@ async def read_root(request: Request):
     # Pass data to HTML template
     return templates.TemplateResponse("index.html", {"request": request, "message": "Hello from FastAPI!"})
 
+@app.post("/items/")
+def create_item(name: str, price: float):
+    return {"name": name, "price": price}
 
 # Run the app with Uvicorn (you can also run from terminal)
 if __name__ == "__main__":
